@@ -258,7 +258,7 @@
 					<p>Tell us what you need and we will do our best to help you</p>
 					<form id="form_contact" class="w3-margin">
 						<p><input class="w3-input w3-padding-16 w3-border" type="email" name="email" placeholder="Email" required="required" /></p>
-						<textarea rows=5 class="w3-input w3-padding-16 w3-border" name="message" placeholder="Message" required="required" />
+						<textarea rows="5" class="w3-input w3-padding-16 w3-border" name="message" placeholder="Message" required="required"></textarea>
 						<p><input type="submit" value="Send Message" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding" /></p>
 					</form>
 				</div>
@@ -288,7 +288,7 @@
 
 					<div class="w3-half w3-margin-bottom w3-margin-top">
 						<div class="w3-card-4">
-							<img src="/static/images/anonymous.jpg" alt="Varun" style="width:100%; height:330px" />
+							<img src="/static/images/anonymous.jpg" alt="Varun" style="width:100%; height:330px"" />
 							<div class="w3-container">
 								<h3>Varun Gupta</h3>
 								<p class="w3-opacity">Backend Developer</p>

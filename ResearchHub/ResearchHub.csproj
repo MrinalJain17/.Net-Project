@@ -75,6 +75,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LoginError.aspx" />
     <Content Include="static\images\anonymous.jpg" />
     <Content Include="static\images\mrinal_1.png" />
     <Content Include="Web.config" />
@@ -82,6 +83,13 @@
     <Content Include="ResearcherHome.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginError.aspx.cs">
+      <DependentUpon>LoginError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginError.aspx.designer.cs">
+      <DependentUpon>LoginError.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

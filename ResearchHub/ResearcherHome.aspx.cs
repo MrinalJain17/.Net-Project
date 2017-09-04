@@ -11,8 +11,10 @@ namespace ResearchHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["CurrentUser"] != null)
-                CurrentUser.InnerHtml = Session["CurrentUser"].ToString();
+            if (Session["CurrentUser"].ToString() != "")
+               CurrentUser.InnerHtml = Session["CurrentUser"].ToString();
+            else
+                Response.Redirect("/LoginError.aspx");
         }
         protected void researcher_sign_out(object sender, EventArgs e)
         {
