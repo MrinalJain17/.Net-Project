@@ -15,7 +15,8 @@ namespace ResearchHub
         }
         protected void researcher_login(object sender, EventArgs e)
         {
-            Session["CurrentUser"] = researcher_email.Text;
+            Session["CurrentUser_email"] = researcher_email.Text;
+            Session["CurrentUser_password"] = researcher_password.Text;
             Response.Redirect("/ResearcherHome.aspx");
         }
     }
