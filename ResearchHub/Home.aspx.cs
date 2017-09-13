@@ -11,13 +11,11 @@ namespace ResearchHub
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-        protected void researcher_login(object sender, EventArgs e)
+        protected void login(object sender, EventArgs e)
         {
-            Session["CurrentUser_email"] = researcher_email.Text;
-            Session["CurrentUser_password"] = researcher_password.Text;
-            Response.Redirect("/ResearcherHome.aspx");
+            Response.Redirect("/Login.aspx");
         }
     }
 }

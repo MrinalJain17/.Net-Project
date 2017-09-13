@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ResearchHub
 {
-    public partial class ResearcherHome : System.Web.UI.Page
+    public partial class GuideHome : System.Web.UI.Page
     {
         MiddleWare MD = new MiddleWare();
         protected void Page_Load(object sender, EventArgs e)
@@ -16,13 +16,13 @@ namespace ResearchHub
             String current_session_email = Session["CurrentUser_email"].ToString();
             if (current_session_email != "")
             {
-                if (MD.login(current_session_email, Session["CurrentUser_password"].ToString()) == 1)
+                if (MD.login(current_session_email, Session["CurrentUser_password"].ToString(), false) == 1)
                 {
-                    String name = MD.get_name(current_session_email);
+                    String name = MD.get_name(current_session_email, false);
                     CurrentUser.InnerHtml = name;
-                    int image = MD.check_image(current_session_email);
+                    int image = MD.check_image(current_session_email, false);
                     if (image == 1)
-                        CurrentUserImage.Src = "/static/images/researcher/" + current_session_email + ".png";
+                        CurrentUserImage.Src = "/static/images/guide/" + current_session_email + ".png";
                     else
                         CurrentUserImage.Src = "/static/images/no_image_user.png";
                 }
@@ -38,7 +38,7 @@ namespace ResearchHub
                 Response.Redirect("/LoginError.aspx");
             }
         }
-        protected void researcher_sign_out(object sender, EventArgs e)
+        protected void guide_sign_out(object sender, EventArgs e)
         {
             Session.Remove("CurrentUser_email");
             Session.Remove("CurrentUser_password");

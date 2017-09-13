@@ -13,39 +13,12 @@ namespace ResearchHub {
     public partial class Home {
         
         /// <summary>
-        /// form_login_researcher control.
+        /// login_signup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form_login_researcher;
-        
-        /// <summary>
-        /// researcher_email control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox researcher_email;
-        
-        /// <summary>
-        /// researcher_password control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox researcher_password;
-        
-        /// <summary>
-        /// researcher_submit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button researcher_submit;
+        protected global::System.Web.UI.HtmlControls.HtmlForm login_signup;
     }
 }

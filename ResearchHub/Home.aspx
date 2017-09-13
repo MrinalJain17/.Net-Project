@@ -26,7 +26,7 @@
 			function about_to_contact() {
 				document.getElementById('about_us').style.display='none';
 				document.getElementById('contact').style.display='block';
-			}
+            }
 		</script>
 	</head>
 
@@ -46,95 +46,24 @@
 				<h3 class="w3-wide">RESEARCH HUB</h3>
 				<h2 class="w3-xxxlarge w3-animate-bottom">Find all you need in one place</h2>
 				<div>
-					<div class="w3-third w3-container">
-						<div class="w3-padding-32">
-							<button class="w3-btn w3-xlarge w3-theme-dark w3-hover-black"
-								onclick="document.getElementById('sign_up').style.display='block'" style="font-weight: 900;">
-								&nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;</button>
-						</div>
-					</div>
-					<div class="w3-third w3-container">
-						<div class="w3-padding-32">
-							<button class="w3-btn w3-xlarge w3-theme-dark w3-hover-black"
-								onclick="document.getElementById('guide_login').style.display='block'" style="font-weight: 900;">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guide&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-						</div>
-					</div>
-					<div class="w3-third w3-container">
-						<div class="w3-padding-32">
-							<button class="w3-btn w3-xlarge w3-theme-dark w3-hover-black"
-								onclick="document.getElementById('researcher_login').style.display='block'" style="font-weight: 900;">
-								Research Scholar</button>
-						</div>
-					</div>
+                    <form id="login_signup" runat="server">
+					    <div class="w3-half w3-container w3-right-align">
+						    <div class="w3-padding-32">
+							    <button class="w3-btn w3-xlarge w3-theme-dark w3-hover-black"
+								    onclick="document.getElementById('sign_up').style.display='block'" style="font-weight: 900;">
+								    &nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;</button>
+						    </div>
+					    </div>
+                        <div class="w3-half w3-container w3-left-align">
+						    <div class="w3-padding-32">
+							    <asp:button runat="server" class="w3-btn w3-xlarge w3-theme-dark w3-hover-black" onclick="login" style="font-weight: 900;" Text="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></asp:button>
+						    </div>
+					    </div>
+                    </form>
 				</div>
 				<br />
 			</div>
 		</header>
-
-		<!-- Researcher Modal -->
-		<div id="researcher_login" class="w3-modal">
-			<div class="w3-modal-content w3-card-4 w3-animate-top">
-				<header class="w3-container w3-theme">
-					<span onclick="document.getElementById('researcher_login').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-					<div class="w3-container w3-blue w3-center">
-						<h2>Research Scholar</h2>
-					</div>
-				</header>
-				<div>
-					<form id="form_login_researcher" method="post" runat="server" class="w3-container w3-light-grey w3-text-blue w3-margin">
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
-							<div class="w3-rest">
-                                <asp:TextBox ID="researcher_email" runat="server" class="w3-input w3-border w3-animate-input" type="email" placeholder="Email"></asp:TextBox>
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-lock"></i></div>
-							<div class="w3-rest">
-                                <asp:TextBox ID="researcher_password" runat="server" class="w3-input w3-border w3-animate-input" type="password" placeholder="Password"></asp:TextBox>
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-                            <asp:Button ID="researcher_submit" runat="server" onclick="researcher_login" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding" Text="Login" />
-						</div>
-					</form>
-				</div>
-				<br />
-			</div>
-		</div>
-
-		<!--Guide Modal -->
-		<div id="guide_login" class="w3-modal">
-			<div class="w3-modal-content w3-card-4 w3-animate-top">
-				<header class="w3-container w3-theme">
-					<span onclick="document.getElementById('guide_login').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-					<div class="w3-container w3-blue w3-center">
-						<h2>Guide</h2>
-					</div>
-				</header>
-				<div>
-					<form id="form_login_guide" class="w3-container w3-light-grey w3-text-blue w3-margin">
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
-							<div class="w3-rest">
-								<input class="w3-input w3-border w3-animate-input" name="email" type="email" placeholder="Email" />
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-lock"></i></div>
-							<div class="w3-rest">
-								<input class="w3-input w3-border w3-animate-input" name="password" type="password" placeholder="Password" />
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<input type="submit" value="Login" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding" />
-						</div>
-					</form>
-				</div>
-				<br />
-			</div>
-		</div>
 
 		<!--Sign Up Modal -->
 		<div id="sign_up" class="w3-modal">

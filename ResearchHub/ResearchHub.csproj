@@ -83,6 +83,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GuideHome.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="LoginError.aspx" />
     <Content Include="static\images\anonymous.jpg" />
     <Content Include="static\images\mrinal_1.png" />
@@ -91,6 +93,20 @@
     <Content Include="ResearcherHome.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GuideHome.aspx.cs">
+      <DependentUpon>GuideHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuideHome.aspx.designer.cs">
+      <DependentUpon>GuideHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginError.aspx.cs">
       <DependentUpon>LoginError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

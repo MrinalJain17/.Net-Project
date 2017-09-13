@@ -10,7 +10,7 @@
 namespace ResearchHub {
     
     
-    public partial class ResearcherHome {
+    public partial class GuideHome {
         
         /// <summary>
         /// CurrentUserImage control.

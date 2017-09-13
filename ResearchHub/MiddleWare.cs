@@ -39,9 +39,9 @@ namespace ResearchHub
                         return -1;
                 }
             }
-            return -1;
+            return -1;                               // Error in connection
         }
-        public String get_name(String email, Boolean researcher = true)
+        public String get_name(String email, Boolean researcher=true)
         {
             using (MySqlConnection conn = new MySqlConnection())
             {
@@ -62,7 +62,37 @@ namespace ResearchHub
                             return reader[0].ToString();
                 }
             }
-            return "";
+            return "";                          // Error in connection
+        }
+        public int check_image(String email, Boolean researcher=true)
+        {
+            using (MySqlConnection conn = new MySqlConnection())
+            {
+                String query;
+                if (researcher)
+                    query = String.Format("SELECT is_image FROM researcher_profile WHERE email=\'{0}\'", email);
+                else
+                    query = String.Format("SELECT is_image FROM guide_profile WHERE email=\'{0}\'", email);
+
+                conn.ConnectionString = connectionString;
+                conn.Open();
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader[0].ToString() == "1")
+                                return 1;
+                            else
+                                return 0;
+                        }
+                    }          
+                }
+            }
+            return -1;                                  // Error in connection
         }
     }
 }
