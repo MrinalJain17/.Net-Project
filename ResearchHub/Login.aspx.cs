@@ -22,5 +22,13 @@ namespace ResearchHub
             else
                 Response.Redirect("/GuideHome.aspx");
         }
+        protected void to_sign_up(object sender, EventArgs e)
+        {
+            Response.Redirect("/SignUp.aspx");
+        }
+        protected void to_home(object sender, EventArgs e)
+        {
+            Response.Redirect("/Home.aspx");
+        }
     }
 }

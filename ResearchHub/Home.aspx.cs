@@ -17,5 +17,9 @@ namespace ResearchHub
         {
             Response.Redirect("/Login.aspx");
         }
+        protected void sign_up(object sender, EventArgs e)
+        {
+            Response.Redirect("/SignUp.aspx");
+        }
     }
 }

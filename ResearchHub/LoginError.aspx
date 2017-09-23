@@ -17,10 +17,11 @@
 				<p></p>
 			</div>
 			<div class="w3-third">
-				<div class="w3-card-2 w3-container  w3-red" style="min-height:300px">
-					<h2>Login Error</h2><br>
-					<i class="fa fa-warning w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+				<div class="w3-card-2 w3-container  w3-red" style="min-height:320px">
                     <form runat="server">
+                        <h2 id="title" runat="server">Login Error</h2><br />
+					    <i class="fa fa-warning w3-margin-bottom w3-text-theme" style="font-size:120px"></i> <br />
+                        <asp:label ID="issue" runat="server" Text=""></asp:label>
 					    <asp:button runat="server" OnClick="back_to_home" class="w3-btn w3-block w3-black w3-margin-top" Text="Back to Home" />
                     </form>
 				</div>

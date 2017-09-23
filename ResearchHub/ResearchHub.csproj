@@ -86,6 +86,7 @@
     <Content Include="GuideHome.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginError.aspx" />
+    <Content Include="SignUp.aspx" />
     <Content Include="static\images\anonymous.jpg" />
     <Content Include="static\images\mrinal_1.png" />
     <Content Include="Web.config" />
@@ -129,6 +130,13 @@
     </Compile>
     <Compile Include="ResearcherHome.aspx.designer.cs">
       <DependentUpon>ResearcherHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

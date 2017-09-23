@@ -27,10 +27,17 @@ namespace ResearchHub
                         CurrentUserImage.Src = "/static/images/no_image_user.png";
                 }
                 else
+                {
+                    Session["Issue"] = "Incorrect Password";
                     flag = false;
+                }
+                    
             }
             else
+            {
+                Session["Issue"] = "User Not Found";
                 flag = false;
+            }
             if (!flag)
             {
                 Session.Remove("CurrentUser_email");

@@ -10,16 +10,25 @@
 namespace ResearchHub {
     
     
-    public partial class Login {
+    public partial class SignUp {
         
         /// <summary>
-        /// form_login control.
+        /// form_sign_up control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form_login;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form_sign_up;
+        
+        /// <summary>
+        /// name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox name;
         
         /// <summary>
         /// email control.
@@ -31,6 +40,15 @@ namespace ResearchHub {
         protected global::System.Web.UI.WebControls.TextBox email;
         
         /// <summary>
+        /// phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox phone;
+        
+        /// <summary>
         /// password control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace ResearchHub {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
+        
+        /// <summary>
+        /// conf_password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox conf_password;
         
         /// <summary>
         /// researcher control.
@@ -67,13 +94,22 @@ namespace ResearchHub {
         protected global::System.Web.UI.WebControls.Button submit;
         
         /// <summary>
-        /// go_to_sign_up control.
+        /// go_to_login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button go_to_sign_up;
+        protected global::System.Web.UI.WebControls.Button go_to_login;
+        
+        /// <summary>
+        /// details_error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl details_error;
         
         /// <summary>
         /// go_to_home control.

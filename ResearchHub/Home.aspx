@@ -49,14 +49,14 @@
                     <form id="login_signup" runat="server">
 					    <div class="w3-half w3-container w3-right-align">
 						    <div class="w3-padding-32">
-							    <button class="w3-btn w3-xlarge w3-theme-dark w3-hover-black"
-								    onclick="document.getElementById('sign_up').style.display='block'" style="font-weight: 900;">
-								    &nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;</button>
-						    </div>
+						        <asp:button runat="server" class="w3-btn w3-xlarge w3-theme-dark w3-hover-black" onclick="sign_up" 
+                                    style="font-weight: 900;" Text="&nbsp;&nbsp;&nbsp;&nbsp;Sign Up&nbsp;&nbsp;&nbsp;&nbsp;"></asp:button>
+                            </div>
 					    </div>
                         <div class="w3-half w3-container w3-left-align">
 						    <div class="w3-padding-32">
-							    <asp:button runat="server" class="w3-btn w3-xlarge w3-theme-dark w3-hover-black" onclick="login" style="font-weight: 900;" Text="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></asp:button>
+							    <asp:button runat="server" class="w3-btn w3-xlarge w3-theme-dark w3-hover-black" onclick="login" 
+                                    style="font-weight: 900;" Text="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"></asp:button>
 						    </div>
 					    </div>
                     </form>
@@ -64,68 +64,6 @@
 				<br />
 			</div>
 		</header>
-
-		<!--Sign Up Modal -->
-		<div id="sign_up" class="w3-modal">
-			<div class="w3-modal-content w3-card-4 w3-animate-top">
-				<header class="w3-container w3-theme">
-					<span onclick="document.getElementById('sign_up').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-					<div class="w3-container w3-blue w3-center">
-						<h2>Sign Up</h2>
-					</div>
-				</header>
-				<div>
-					<form id="form_sign_up" class="w3-container w3-light-grey w3-text-blue w3-margin">
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-user"></i></div>
-							<div class="w3-rest">
-								<input class="w3-input w3-border w3-animate-input" name="name" type="text" placeholder="Name" />
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
-							<div class="w3-rest">
-								<input class="w3-input w3-border w3-animate-input" name="email" type="email" placeholder="Email" />
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-phone"></i></div>
-							<div class="w3-rest">
-								<input class="w3-input w3-border w3-animate-input" name="phone" type="text" placeholder="Phone" />
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-lock"></i></div>
-							<div class="w3-rest">
-								<input class="w3-input w3-border w3-animate-input" name="password" type="password" placeholder="Password" />
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<div class="w3-col" style="width: 50px"><i class="w3-xxlarge fa fa-lock"></i></div>
-							<div class="w3-rest">
-								<input class="w3-input w3-border w3-animate-input" name="confirm_password" type="password" placeholder="Confirm Password" />
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<div class="w3-rest">
-								<p>
-									<input class="w3-radio" type="radio" name="user_type" value="researcher" checked="checked" />
-									<label>Research Scholar</label>
-								</p>
-								<p>
-									<input class="w3-radio" type="radio" name="user_type" value="guide" />
-									<label>Guide</label>
-								</p>
-							</div>
-						</div>
-						<div class="w3-row w3-section">
-							<input type="submit" value="Register" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding" />
-						</div>
-					</form>
-				</div>
-				<br />
-			</div>
-		</div>
 
 		<!-- About Section -->
 		<div class="w3-container" style="padding: 128px 16px" id="about">

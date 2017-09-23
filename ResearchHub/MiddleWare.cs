@@ -41,6 +41,52 @@ namespace ResearchHub
             }
             return -1;                               // Error in connection
         }
+        public int sign_up(String name, String email, String password, String phone, Boolean researcher=true)
+        {
+            using (MySqlConnection conn = new MySqlConnection())
+            {
+                String query;
+                if (researcher)
+                    query = String.Format("INSERT INTO researcher_profile (name, email, phone_no, is_image) VALUES (\'{0}\', \'{1}\', \'{2}\', \'{3}\')", name, email, phone, 0);
+                else
+                    query = String.Format("INSERT INTO guide_profile (name, email, phone_no, is_image) VALUES (\'{0}\', \'{1}\', \'{2}\', \'{3}\')", name, email, phone, 0);
+
+                conn.ConnectionString = connectionString;
+                conn.Open();
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                try
+                {
+                    int rows_affected = command.ExecuteNonQuery();
+                    if (rows_affected == 1)
+                    {
+                        String query2;
+                        if (researcher)
+                            query2 = String.Format("INSERT INTO researcher_login (email, password) VALUES (\'{0}\', \'{1}\')", email, password);
+                        else
+                            query2 = String.Format("INSERT INTO guide_login (email, password) VALUES (\'{0}\', \'{1}\')", email, password);
+                        MySqlCommand command2 = new MySqlCommand(query2, conn);
+                        try
+                        {
+                            int rows_affected2 = command2.ExecuteNonQuery();
+                            if (rows_affected2 == 1)
+                                return 1;
+                        }
+                        catch(Exception)
+                        {
+                            Console.WriteLine("User details inserted, but some error occured !");
+                            return -1;
+                        }
+                    }
+                }
+                catch(Exception)
+                {
+                    Console.WriteLine("User details could not be inserted !");
+                    return 0;
+                }
+            }
+            return -1;                                    // Error in connection
+        }
         public String get_name(String email, Boolean researcher=true)
         {
             using (MySqlConnection conn = new MySqlConnection())
