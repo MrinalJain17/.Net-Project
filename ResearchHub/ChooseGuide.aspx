@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResearcherHome.aspx.cs" Inherits="ResearchHub.ResearcherHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChooseGuide.aspx.cs" Inherits="ResearchHub.ChooseGuide" %>
 
 <!DOCTYPE html>
 
@@ -45,21 +45,17 @@
                     </div>
                 </header>
 
-                <div class="w3-blue w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="choose_guide" Class="w3-button w3-margin" Text="Choose a Guide"></asp:Button>
-                </div>
+                <div runat="server" id="guides"></div>
 
-                <div class="w3-teal w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Send Message to Guide"></asp:Button>
-                </div>
-
-                <div class="w3-green w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Veiw Message from Guide"></asp:Button>
-                </div>
-
-                <div class="w3-light-green w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Upload Material"></asp:Button>
-                </div>
+                    <div class="w3-container w3-card-4 w3-center">
+                        <div class="w3-row w3-section">
+                            <asp:TextBox ID="email" runat="server" class="w3-input w3-border w3-animate-input" 
+                                type="email" placeholder="Enter the Email of the Guide"></asp:TextBox>
+					    </div>
+                        <div class="w3-row w3-section">
+                            <asp:Button ID="select" runat="server" OnClick="select_guide" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding" Text="Update" />
+					    </div>
+                    </div>
 
             </div>
         </form>

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ResearchHub
 {
-    public partial class ResearcherHome : System.Web.UI.Page
+    public partial class ChooseGuide : System.Web.UI.Page
     {
         MiddleWare MD = new MiddleWare();
         protected void Page_Load(object sender, EventArgs e)
@@ -25,13 +25,14 @@ namespace ResearchHub
                         CurrentUserImage.Src = "/static/images/researcher/" + current_session_email + ".png";
                     else
                         CurrentUserImage.Src = "/static/images/no_image_user.png";
+                    show_guides();
                 }
                 else
                 {
                     Session["Issue"] = "Incorrect Password";
                     flag = false;
                 }
-                    
+
             }
             else
             {
@@ -45,19 +46,24 @@ namespace ResearchHub
                 Response.Redirect("/LoginError.aspx");
             }
         }
+        private void show_guides()
+        {
+            String guide_details = MD.find_guides();
+            guides.InnerHtml = guide_details;
+        }
+        protected void select_guide(object sender, EventArgs e)
+        {
+            String guide_selected = email.Text.ToString();
+            String current_session_email = Session["CurrentUser_email"].ToString();
+            int result = MD.selected_guide(guide_selected, current_session_email);
+            if (result == 1)
+                Response.Redirect("/ResearcherHome.aspx");
+        }
         protected void researcher_sign_out(object sender, EventArgs e)
         {
             Session.Remove("CurrentUser_email");
             Session.Remove("CurrentUser_password");
             Response.Redirect("/Home.aspx");
-        }
-        protected void choose_guide(object sender, EventArgs e)
-        {
-            Response.Redirect("/ChooseGuide.aspx");
-        }
-        protected void temp(object sender, EventArgs e)
-        {
-
         }
     }
 }

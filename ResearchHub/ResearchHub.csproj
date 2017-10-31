@@ -83,6 +83,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChooseGuide.aspx" />
     <Content Include="GuideHome.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="LoginError.aspx" />
@@ -94,6 +95,13 @@
     <Content Include="ResearcherHome.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseGuide.aspx.cs">
+      <DependentUpon>ChooseGuide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChooseGuide.aspx.designer.cs">
+      <DependentUpon>ChooseGuide.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GuideHome.aspx.cs">
       <DependentUpon>GuideHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

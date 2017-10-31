@@ -140,5 +140,83 @@ namespace ResearchHub
             }
             return -1;                                  // Error in connection
         }
+        public String find_guides()
+        {
+            using (MySqlConnection conn = new MySqlConnection())
+            {
+                String query = "SELECT name, email, phone_no FROM guide_profile";
+                String result= "<div class=\"w3-container w3-margin\">";
+                conn.ConnectionString = connectionString;
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(query, conn);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            String temp = "<div class=\"w3-card-4\" style=\"width:50%\">" + 
+                                "<div class=\"w3-container w3-center\">" +
+                                "<h3> {0} </h3>" +
+                                "<div class=\"w3-section\">" +
+                                "<h5> Phone: {1} </h5>" +
+                                "</div>" +
+                                "<div class=\"w3-section\">" +
+                                "<h5> Email: {2} </h5>" +
+                                "</div>" +
+                                "</div>" +
+                                "</div>" +
+                                "<br />";
+                            result += String.Format(temp, reader[0], reader[2], reader[1], reader[1]);
+                        }
+                        
+                    }
+                    return result + "</div>";
+                }
+            }
+        }
+        public int selected_guide(String guide_id, String researcher_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection())
+            {
+                int check = update_guide(researcher_id);
+                String query = String.Format("UPDATE researcher_under_guide SET guide_id=\'{0}\' WHERE researcher_id=\'{1}\'", guide_id, researcher_id);
+                if (check == 0)
+                    query = String.Format("INSERT INTO researcher_under_guide (researcher_id, guide_id) VALUES (\'{0}\', \'{1}\')", researcher_id, guide_id);
+                conn.ConnectionString = connectionString;
+                conn.Open();
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                try
+                {
+                    int rows_affected = command.ExecuteNonQuery();
+                    if (rows_affected == 1)
+                        return 1;
+                }
+                catch(Exception)
+                {
+                    Console.WriteLine("Details could not be inserted !");
+                    return 0;
+                }
+            }
+            return -1;                              // Error in connection
+        }
+        public int update_guide(String researcher_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection())
+            {
+                String query = String.Format("SELECT researcher_id FROM researcher_under_guide WHERE researcher_id=\'{0}\'", researcher_id);
+                conn.ConnectionString = connectionString;
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(query, conn);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                        return 1;
+                    else
+                        return 0;
+                }
+            }
+        }
     }
 }
