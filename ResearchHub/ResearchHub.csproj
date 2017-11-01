@@ -90,6 +90,7 @@
     <Content Include="SignUp.aspx" />
     <Content Include="static\images\anonymous.jpg" />
     <Content Include="static\images\mrinal_1.png" />
+    <Content Include="ViewResearchers.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="ResearcherHome.aspx" />
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewResearchers.aspx.cs">
+      <DependentUpon>ViewResearchers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewResearchers.aspx.designer.cs">
+      <DependentUpon>ViewResearchers.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

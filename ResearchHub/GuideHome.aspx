@@ -16,22 +16,51 @@
 	</head>
 	
 	<body>
-        <!-- Sidebar -->
-		<nav class="w3-sidebar w3-collapse w3-black w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br />
-			<div class="w3-container">
-				<img runat="server" id="CurrentUserImage" src="#" style="width:45%; height:120px" class="w3-round" /><br /><br />
-				<h4><a id="CurrentUser" runat="server"><b>User</b></a></h4>
-				<p class="w3-text-grey">Guide</p>
-			</div>
-			<div class="w3-bar-block">
-				<a href="#" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>GUIDE</a> 
-				<a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
-				<div class="w3-bottom w3-hide-small">
-                    <form runat="server">
-					    <asp:LinkButton runat="server" onclick="guide_sign_out" class="w3-text-red w3-button"><span class="w3-xlarge w3-margin-right">Sign Out</span><i class="fa fa-sign-out w3-xlarge"></i></asp:LinkButton>
-				    </form>
+        <form runat="server">
+
+            <!-- Sidebar -->
+		    <nav class="w3-sidebar w3-collapse w3-black w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br />
+			    <div class="w3-container">
+				    <img runat="server" id="CurrentUserImage" src="#" style="width:45%; height:120px" class="w3-round" /><br /><br />
+				    <h4><a id="CurrentUser" runat="server"><b>User</b></a></h4>
+				    <p class="w3-text-grey">Guide</p>
+			    </div>
+			    <div class="w3-bar-block">
+				    <a href="#" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>GUIDE</a> 
+				    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a> 
+				    <div class="w3-bottom w3-hide-small">
+			            <asp:LinkButton runat="server" onclick="guide_sign_out" class="w3-text-red w3-button"><span class="w3-xlarge w3-margin-right">Sign Out</span><i class="fa fa-sign-out w3-xlarge"></i></asp:LinkButton>
+                    </div>
+			    </div>
+		    </nav>
+
+            <!-- !PAGE CONTENT! -->
+            <div class="w3-main" style="margin-left:300px">
+
+                <!-- Header -->
+                <header>
+                    <div class="w3-container">
+                        <h1><b>My Research Portal</b></h1>
+                    </div>
+                </header>
+
+                <div class="w3-blue w3-hover-shadow w3-center w3-margin">
+                    <asp:Button runat="server" OnClick="view_researchers" Class="w3-button w3-margin" Text="View Registered Research Students"></asp:Button>
                 </div>
-			</div>
-		</nav>
+
+                <div class="w3-teal w3-hover-shadow w3-center w3-margin">
+                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Send Message"></asp:Button>
+                </div>
+
+                <div class="w3-green w3-hover-shadow w3-center w3-margin">
+                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Veiw Message"></asp:Button>
+                </div>
+
+                <div class="w3-light-green w3-hover-shadow w3-center w3-margin">
+                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="View Material Uploaded by Research Students"></asp:Button>
+                </div>
+
+            </div>
+         </form>
 	</body>
 </html>

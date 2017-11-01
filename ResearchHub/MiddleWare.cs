@@ -140,7 +140,7 @@ namespace ResearchHub
             }
             return -1;                                  // Error in connection
         }
-        public String find_guides()
+        public String find_guides(String curr_guide)
         {
             using (MySqlConnection conn = new MySqlConnection())
             {
@@ -155,19 +155,21 @@ namespace ResearchHub
                     {
                         while (reader.Read())
                         {
-                            String temp = "<div class=\"w3-card-4\" style=\"width:50%\">" + 
-                                "<div class=\"w3-container w3-center\">" +
-                                "<h3> {0} </h3>" +
-                                "<div class=\"w3-section\">" +
-                                "<h5> Phone: {1} </h5>" +
-                                "</div>" +
-                                "<div class=\"w3-section\">" +
-                                "<h5> Email: {2} </h5>" +
-                                "</div>" +
-                                "</div>" +
+                            String temp = "<div class=\"w3-card-4\" style=\"width:50%\">";
+                            if ((curr_guide == reader[1].ToString()) && curr_guide != null)
+                                temp = "<div class=\"w3-card-4 w3-blue\" style=\"width:50%\">";
+                            temp += "<div class=\"w3-container w3-center\">" +
+                                        "<h3> {0} </h3>" +
+                                        "<div class=\"w3-section\">" +
+                                            "<h5> Phone: {1} </h5>" +
+                                        "</div>" +
+                                        "<div class=\"w3-section\">" +
+                                            "<h5> Email: {2} </h5>" +
+                                        "</div>" +
+                                    "</div>" +
                                 "</div>" +
                                 "<br />";
-                            result += String.Format(temp, reader[0], reader[2], reader[1], reader[1]);
+                            result += String.Format(temp, reader[0], reader[2], reader[1]);
                         }
                         
                     }
@@ -215,6 +217,80 @@ namespace ResearchHub
                         return 1;
                     else
                         return 0;
+                }
+            }
+        }
+        public string get_selected_guide(String researcher_id)
+        {
+            int check = update_guide(researcher_id);
+            if (check == 1)
+            {
+                using (MySqlConnection conn = new MySqlConnection())
+                {
+                    String query = String.Format("SELECT guide_id FROM researcher_under_guide WHERE researcher_id=\'{0}\'", researcher_id);
+                    conn.ConnectionString = connectionString;
+                    conn.Open();
+                    MySqlCommand command = new MySqlCommand(query, conn);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                            if (reader.Read())
+                                return reader[0].ToString();
+                        else
+                           return null;
+                    }
+                }
+            }
+            return null;
+        }
+        public String registered_researchers(String guide_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection())
+            {
+                String query = "SELECT name, email, phone_no FROM researcher_profile WHERE email=\'{0}\'";
+                String query2 = String.Format("SELECT researcher_id, guide_id FROM researcher_under_guide WHERE guide_id=\'{0}\'", guide_id);
+                String result = "<div class=\"w3-container w3-margin\">";
+                conn.ConnectionString = connectionString;
+                conn.Open();
+                MySqlCommand command = new MySqlCommand(query2, conn);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            String temp_query = String.Format(query, reader[0]);
+                            using (MySqlConnection conn2 = new MySqlConnection())
+                            {
+                                conn2.ConnectionString = connectionString;
+                                conn2.Open();
+                                MySqlCommand command2 = new MySqlCommand(temp_query, conn2);
+                                using (MySqlDataReader reader2 = command2.ExecuteReader())
+                                {
+                                    if (reader2.HasRows)
+                                    {
+                                        if (reader2.Read())
+                                        {
+                                            String temp = "<div class=\"w3-card-4\" style=\"width:50%\">";
+                                            temp += "<div class=\"w3-container w3-center\">" +
+                                                        "<h3> {0} </h3>" +
+                                                        "<div class=\"w3-section\">" +
+                                                            "<h5> Phone: {1} </h5>" +
+                                                        "</div>" +
+                                                        "<div class=\"w3-section\">" +
+                                                            "<h5> Email: {2} </h5>" +
+                                                        "</div>" +
+                                                    "</div>" +
+                                                "</div>" +
+                                                "<br />";
+                                            result += String.Format(temp, reader2[0], reader2[2], reader2[1]);
+                                        }
+                                    }
+                                }                       // For each researcher under the current guide  
+                            }                                                      
+                        }
+                    }
+                    return result + "</div>";
                 }
             }
         }

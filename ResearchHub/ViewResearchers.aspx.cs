@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ResearchHub
 {
-    public partial class GuideHome : System.Web.UI.Page
+    public partial class ViewResearchers : System.Web.UI.Page
     {
         MiddleWare MD = new MiddleWare();
         protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +25,7 @@ namespace ResearchHub
                         CurrentUserImage.Src = "/static/images/guide/" + current_session_email + ".png";
                     else
                         CurrentUserImage.Src = "/static/images/no_image_user.png";
+                    view_researchers();
                 }
                 else
                 {
@@ -45,19 +46,22 @@ namespace ResearchHub
                 Response.Redirect("/LoginError.aspx");
             }
         }
-        protected void view_researchers(object sender, EventArgs e)
+        private void view_researchers()
         {
-            Response.Redirect("/ViewResearchers.aspx");
+            String current_session_email = Session["CurrentUser_email"].ToString();
+            String researcher_details = MD.registered_researchers(current_session_email);
+            researchers.InnerHtml = researcher_details;
+
+        }
+        protected void go_back_home(object sender, EventArgs e)
+        {
+            Response.Redirect("/GuideHome.aspx");
         }
         protected void guide_sign_out(object sender, EventArgs e)
         {
             Session.Remove("CurrentUser_email");
             Session.Remove("CurrentUser_password");
             Response.Redirect("/Home.aspx");
-        }
-        protected void temp(object sender, EventArgs e)
-        {
-
         }
     }
 }

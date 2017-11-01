@@ -10,7 +10,7 @@
 namespace ResearchHub {
     
     
-    public partial class ChooseGuide {
+    public partial class ViewResearchers {
         
         /// <summary>
         /// CurrentUserImage control.
@@ -31,31 +31,13 @@ namespace ResearchHub {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor CurrentUser;
         
         /// <summary>
-        /// guides control.
+        /// researchers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl guides;
-        
-        /// <summary>
-        /// email control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
-        
-        /// <summary>
-        /// select control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button select;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl researchers;
         
         /// <summary>
         /// go_back control.

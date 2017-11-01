@@ -47,15 +47,16 @@
 
                 <div runat="server" id="guides"></div>
 
-                    <div class="w3-container w3-card-4 w3-center">
-                        <div class="w3-row w3-section">
-                            <asp:TextBox ID="email" runat="server" class="w3-input w3-border w3-animate-input" 
-                                type="email" placeholder="Enter the Email of the Guide"></asp:TextBox>
-					    </div>
-                        <div class="w3-row w3-section">
-                            <asp:Button ID="select" runat="server" OnClick="select_guide" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding" Text="Update" />
-					    </div>
-                    </div>
+                <div class="w3-container w3-card-4 w3-center">
+                    <div class="w3-row w3-section">
+                        <asp:TextBox ID="email" runat="server" class="w3-input w3-border w3-animate-input" 
+                            type="email" placeholder="Enter the Email of the Guide"></asp:TextBox>
+					</div>
+                    <div class="w3-row w3-section">
+                        <asp:Button ID="select" runat="server" OnClick="select_guide" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding" Text="Update" />
+                        <asp:Button ID="go_back" runat="server" OnClick="go_back_home" class="w3-button w3-block w3-section w3-red w3-ripple w3-padding" Text="Go Back" />
+					</div>
+                </div>
 
             </div>
         </form>

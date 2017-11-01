@@ -48,7 +48,8 @@ namespace ResearchHub
         }
         private void show_guides()
         {
-            String guide_details = MD.find_guides();
+            String current_guide = MD.get_selected_guide(Session["CurrentUser_email"].ToString());
+            String guide_details = MD.find_guides(current_guide);
             guides.InnerHtml = guide_details;
         }
         protected void select_guide(object sender, EventArgs e)
@@ -58,6 +59,10 @@ namespace ResearchHub
             int result = MD.selected_guide(guide_selected, current_session_email);
             if (result == 1)
                 Response.Redirect("/ResearcherHome.aspx");
+        }
+        protected void go_back_home(object sender, EventArgs e)
+        {
+            Response.Redirect("/ResearcherHome.aspx");
         }
         protected void researcher_sign_out(object sender, EventArgs e)
         {
