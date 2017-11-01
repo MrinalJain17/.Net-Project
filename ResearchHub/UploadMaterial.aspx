@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResearcherHome.aspx.cs" Inherits="ResearchHub.ResearcherHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UploadMaterial.aspx.cs" Inherits="ResearchHub.UploadMaterial" %>
 
 <!DOCTYPE html>
 
@@ -45,20 +45,17 @@
                     </div>
                 </header>
 
-                <div class="w3-blue w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="choose_guide" Class="w3-button w3-margin" Text="Choose a Guide"></asp:Button>
-                </div>
-
-                <div class="w3-teal w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Send Message"></asp:Button>
-                </div>
-
-                <div class="w3-green w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Veiw Message"></asp:Button>
-                </div>
-
-                <div class="w3-light-green w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="upload_material" Class="w3-button w3-margin" Text="Upload Material"></asp:Button>
+                <div class="w3-container w3-card-4">
+                    <div class="w3-margin w3-section w3-third">
+                        <asp:FileUpload ID="FileUpload1" runat="server" class="w3-block w3-padding" />
+					</div>
+                    <div class="w3-margin w3-section w3-rest">
+                        <asp:Button ID="upload" runat="server" OnClick="upload_file" class="w3-button w3-block w3-green w3-ripple w3-padding" Text="Upload File" />
+                    </div>
+                    <div class="w3-margin w3-section w3-center">
+                        <asp:Label runat="server" id="Status" Visible="false"/>
+                        <asp:Button ID="go_back" runat="server" OnClick="go_back_home" class="w3-button w3-block w3-section w3-red w3-ripple w3-padding" Text="Go Back" />
+                    </div>
                 </div>
 
             </div>

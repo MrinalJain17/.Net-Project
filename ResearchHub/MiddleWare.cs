@@ -203,11 +203,13 @@ namespace ResearchHub
             }
             return -1;                              // Error in connection
         }
-        public int update_guide(String researcher_id)
+        public int update_guide(String researcher_id, Boolean check_file_upload=false)
         {
             using (MySqlConnection conn = new MySqlConnection())
             {
                 String query = String.Format("SELECT researcher_id FROM researcher_under_guide WHERE researcher_id=\'{0}\'", researcher_id);
+                if (check_file_upload)
+                    query = String.Format("SELECT researcher_id FROM file_uploads WHERE researcher_id=\'{0}\'", researcher_id);
                 conn.ConnectionString = connectionString;
                 conn.Open();
                 MySqlCommand command = new MySqlCommand(query, conn);
@@ -293,6 +295,33 @@ namespace ResearchHub
                     return result + "</div>";
                 }
             }
+        }
+        public int file_uploaded(String researcher_id)
+        {
+            using (MySqlConnection conn = new MySqlConnection())
+            {
+                int check = update_guide(researcher_id, true);
+                if (check == 1)
+                    return 1;
+                String guide_id = get_selected_guide(researcher_id);
+                String query = String.Format("INSERT INTO file_uploads (researcher_id, guide_id, file) VALUES (\'{0}\', \'{1}\', 1)", researcher_id, guide_id);
+                conn.ConnectionString = connectionString;
+                conn.Open();
+
+                MySqlCommand command = new MySqlCommand(query, conn);
+                try
+                {
+                    int rows_affected = command.ExecuteNonQuery();
+                    if (rows_affected == 1)
+                        return 1;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Details could not be inserted !");
+                    return 0;
+                }
+            }
+            return -1;                              // Error in connection
         }
     }
 }

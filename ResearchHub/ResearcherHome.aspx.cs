@@ -55,6 +55,10 @@ namespace ResearchHub
         {
             Response.Redirect("/ChooseGuide.aspx");
         }
+        protected void upload_material(object sender, EventArgs e)
+        {
+            Response.Redirect("/UploadMaterial.aspx");
+        }
         protected void temp(object sender, EventArgs e)
         {
 
