@@ -60,7 +60,7 @@ namespace ResearchHub
                     if (FileUpload1.PostedFile.ContentLength < 5242880)        // Max. File size = 5 MB
                     {
                         String extension = FileUpload1.PostedFile.FileName.Substring(FileUpload1.PostedFile.FileName.LastIndexOf('.'));
-                        if (extension.ToLower() == ".doc" || extension.ToLower() == ".pdf")         // Only pdf can be uploaded
+                        if (extension.ToLower() == ".pdf")         // Only pdf can be uploaded
                         {
                             String filename = current_session_email + extension;
                             FileUpload1.SaveAs("E:/VIT/Fifth Semester/Projects/.Net Programming/ResearchHub/ResearchHub/static/uploaded_files/" + filename);

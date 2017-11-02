@@ -91,6 +91,7 @@
     <Content Include="static\images\anonymous.jpg" />
     <Content Include="static\images\mrinal_1.png" />
     <Content Include="UploadMaterial.aspx" />
+    <Content Include="ViewMaterial.aspx" />
     <Content Include="ViewResearchers.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
@@ -154,6 +155,13 @@
     </Compile>
     <Compile Include="UploadMaterial.aspx.designer.cs">
       <DependentUpon>UploadMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMaterial.aspx.cs">
+      <DependentUpon>ViewMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewMaterial.aspx.designer.cs">
+      <DependentUpon>ViewMaterial.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewResearchers.aspx.cs">
       <DependentUpon>ViewResearchers.aspx</DependentUpon>

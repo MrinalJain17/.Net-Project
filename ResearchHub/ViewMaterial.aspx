@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GuideHome.aspx.cs" Inherits="ResearchHub.GuideHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewMaterial.aspx.cs" Inherits="ResearchHub.ViewMaterial" %>
 
 <!DOCTYPE html>
 
@@ -38,29 +38,27 @@
             <div class="w3-main" style="margin-left:300px">
 
                 <!-- Header -->
-                <header>
+                <header id="portfolio">
                     <div class="w3-container">
                         <h1><b>My Research Portal</b></h1>
                     </div>
                 </header>
 
-                <div class="w3-blue w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="view_researchers" Class="w3-button w3-margin" Text="View Registered Research Students"></asp:Button>
-                </div>
+                <div runat="server" id="researchers"></div>
 
-                <div class="w3-teal w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Send Message"></asp:Button>
-                </div>
-
-                <div class="w3-green w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="temp" Class="w3-button w3-margin" Text="Veiw Message"></asp:Button>
-                </div>
-
-                <div class="w3-light-green w3-hover-shadow w3-center w3-margin">
-                    <asp:Button runat="server" OnClick="view_material" Class="w3-button w3-margin" Text="View Material Uploaded by Research Students"></asp:Button>
+                <div class="w3-container w3-card-4 w3-center">
+                    <div class="w3-row w3-section">
+                        <asp:TextBox ID="email" runat="server" class="w3-input w3-border w3-animate-input" 
+                            type="email" placeholder="Enter the Email of the Research Student"></asp:TextBox>
+					</div>
+                    <div class="w3-row w3-section">
+                        <asp:Label runat="server" id="Status" Visible="false"/>
+                        <asp:Button ID="select" runat="server" OnClick="read_material" class="w3-button w3-block w3-section w3-green w3-ripple w3-padding" Text="View Material" />
+                        <asp:Button ID="go_back" runat="server" OnClick="go_back_home" class="w3-button w3-block w3-section w3-red w3-ripple w3-padding" Text="Go Back" />
+					</div>
                 </div>
 
             </div>
-         </form>
+        </form>
 	</body>
 </html>

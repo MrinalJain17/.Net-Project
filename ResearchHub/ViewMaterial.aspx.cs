@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ResearchHub
 {
-    public partial class GuideHome : System.Web.UI.Page
+    public partial class ViewMaterial : System.Web.UI.Page
     {
         MiddleWare MD = new MiddleWare();
         protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +25,7 @@ namespace ResearchHub
                         CurrentUserImage.Src = "/static/images/guide/" + current_session_email + ".png";
                     else
                         CurrentUserImage.Src = "/static/images/no_image_user.png";
+                    view_researchers();
                 }
                 else
                 {
@@ -45,23 +46,40 @@ namespace ResearchHub
                 Response.Redirect("/LoginError.aspx");
             }
         }
-        protected void view_researchers(object sender, EventArgs e)
+        private void view_researchers()
         {
-            Response.Redirect("/ViewResearchers.aspx");
+            String current_session_email = Session["CurrentUser_email"].ToString();
+            String researcher_details = MD.registered_researchers(current_session_email);
+            researchers.InnerHtml = researcher_details;
+
+        }
+        protected void go_back_home(object sender, EventArgs e)
+        {
+            Response.Redirect("/GuideHome.aspx");
+        }
+        protected void read_material(object sender, EventArgs e)
+        {
+            String researcher = email.Text.ToString();
+            String current_session_email = Session["CurrentUser_email"].ToString();
+            int check = MD.update_guide(researcher, true, current_session_email);
+            if (check == 1)
+            {
+                String file = "E:/VIT/Fifth Semester/Projects/.Net Programming/ResearchHub/ResearchHub/static/uploaded_files/" + researcher + ".pdf";
+                System.Diagnostics.Process.Start(file);
+            }
+            else
+            {
+                Status.Text = "No file has been uploaded by the selected Student";
+                Status.Attributes.Add("class", "w3-block w3-section w3-padding w3-text-red w3-wide w3-large");
+                Status.Visible = true;
+            }
+            email.Text = "";
         }
         protected void guide_sign_out(object sender, EventArgs e)
         {
             Session.Remove("CurrentUser_email");
             Session.Remove("CurrentUser_password");
             Response.Redirect("/Home.aspx");
-        }
-        protected void view_material(object sender, EventArgs e)
-        {
-            Response.Redirect("/ViewMaterial.aspx");
-        }
-        protected void temp(object sender, EventArgs e)
-        {
-
         }
     }
 }
