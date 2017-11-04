@@ -8,7 +8,8 @@ namespace ResearchHub
 {
     public class MiddleWare
     {
-        private String connectionString = "Server=localhost;Uid=root;Pwd=Mrinal17;Database=research_hub_database";
+        // Set Uid and Pwd in connectionString
+        private String connectionString = "Server=localhost;Uid=XXXX;Pwd=XXXX;Database=research_hub_database";
         public int login(String email, String password, Boolean researcher=true)
         {
             using (MySqlConnection conn = new MySqlConnection())
